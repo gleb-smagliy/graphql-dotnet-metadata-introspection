@@ -3,7 +3,7 @@ using GraphQLParser.AST;
 
 namespace GraphQL.MetadataIntrospection.DirectivesVisitor
 {
-    public abstract class DirectivesUsagesVisitor
+    internal abstract class DirectivesUsagesVisitor
     {
         protected void Walk(GraphQLDocument document)
         {

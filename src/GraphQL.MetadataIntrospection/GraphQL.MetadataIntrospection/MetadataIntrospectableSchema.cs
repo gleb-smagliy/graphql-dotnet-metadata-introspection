@@ -13,9 +13,10 @@ namespace GraphQL.MetadataIntrospection
     /// </summary>
     public static class MetadataIntrospectableSchema
     {
-        private static IEnumerable<Metadata> ExtractFrom(string typeDefinitions, MetadataIntrospection introspection)
+        private static IEnumerable<Metadata> ExtractFrom(string typeDefinitions, IntrospectionConfiguration configuration)
         {
-            var extractor = new MetadataExtractor();
+            var filter = new BasicDirectivesFilter(configuration.IncludedDirectives.ToArray(), configuration.ExcludedDirectives.ToArray());
+            var extractor = new MetadataExtractor(filter);
 
             var ast = SchemaParser.ParseSchema(typeDefinitions);
             var metadata = extractor.ExtractMetadata(ast);
@@ -23,9 +24,9 @@ namespace GraphQL.MetadataIntrospection
             return metadata;
         }
 
-        private static MetadataIntrospection CreateEnrichment(Action<MetadataIntrospection> configure = null)
+        private static IntrospectionConfiguration CreateEnrichment(Action<IntrospectionConfiguration> configure = null)
         {
-            var enrichment = new MetadataIntrospection
+            var enrichment = new IntrospectionConfiguration
             {
                 FieldName = "_metadata"
             };
@@ -43,9 +44,9 @@ namespace GraphQL.MetadataIntrospection
         /// <param name="configure">Graphql.Utilities.SchemaBuilder configuration</param>
         /// <param name="metadataEnrichmentConfiguration">Allows you to customize some MetadataEnrichedSchema parameters</param>
         /// <returns>GraphQL schema object with built-in metadata query</returns>
-        public static ISchema For(string typeDefinitions, Action<SchemaBuilder> configure = null, Action<MetadataIntrospection> configureEnrichment = null)
+        public static ISchema For(string typeDefinitions, Action<SchemaBuilder> configure = null, Action<IntrospectionConfiguration> configureEnrichment = null)
         {
-            return BuildFor(new [] {typeDefinitions}, configure);
+            return For(new [] {typeDefinitions}, configure);
         }
 
         /// <summary>
@@ -55,10 +56,10 @@ namespace GraphQL.MetadataIntrospection
         /// <param name="configureBuild">Graphql.Utilities.SchemaBuilder configuration</param>
         /// <param name="configureEnrichment">Allows you to customize some enrichment parameters</param>
         /// <returns>GraphQL schema object with built-in metadata query</returns>
-        public static ISchema For(string[] typeDefinitions, Action<SchemaBuilder> configureBuild = null, Action<MetadataIntrospection> configureEnrichment = null)
+        public static ISchema For(string[] typeDefinitions, Action<SchemaBuilder> configureBuild = null, Action<IntrospectionConfiguration> configureEnrichment = null)
         {
             var schemaDefinition = string.Join("\n", typeDefinitions);
-            var schema = GraphQLSchema.For(schemaDefinition, configureBuild);
+            var schema = GraphQL.Types.Schema.For(schemaDefinition, configureBuild);
             var enrichment = CreateEnrichment(configureEnrichment);
 
             var metadata = ExtractFrom(schemaDefinition, enrichment);

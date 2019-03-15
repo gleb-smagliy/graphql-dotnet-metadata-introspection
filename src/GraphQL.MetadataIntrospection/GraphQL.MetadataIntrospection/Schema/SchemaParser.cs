@@ -1,3 +1,6 @@
+using GraphQLParser;
+using GraphQLParser.AST;
+
 namespace GraphQL.MetadataIntrospection.Schema
 {
     internal class SchemaParser

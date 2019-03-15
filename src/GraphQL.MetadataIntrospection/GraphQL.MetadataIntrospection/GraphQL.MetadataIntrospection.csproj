@@ -2,10 +2,21 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.2</PackageVersion>
+        <Title>GraphQL.MetadataIntrospection</Title>
+        <Authors>Gleb Smagliy &lt;glebsmag@gmail.com&gt;</Authors>
+        <Description>Allows to introspect metadata declared by directives via query</Description>
+        <PackageTags>GraphQL</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="GraphQL" Version="2.4.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Server" />
     </ItemGroup>
 
 </Project>
