@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Home\graphql-dotnet-metadata-introspection\src\GraphQL.MetadataIntrospection" t="IncludeFlat">
+      <e p="GraphQL.MetadataIntrospection" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DirectivesVisitor" t="Include">
+          <e p="DirectivesUsages" t="Include">
+            <e p="InterfaceFieldDirectiveUsage.cs" t="Include" />
+            <e p="InterfaceTypeDirectiveUsage.cs" t="Include" />
+            <e p="ObjectFieldDirectiveUsage.cs" t="Include" />
+            <e p="ObjectTypeDirectiveUsage.cs" t="Include" />
+          </e>
+          <e p="DirectivesUsagesVisitor.cs" t="Include" />
+        </e>
+        <e p="GraphQL.MetadataIntrospection.csproj" t="IncludeRecursive" />
+        <e p="MetadataIntrospectableSchema.cs" t="Include" />
+        <e p="MetadataIntrospection.cs" t="Include" />
+        <e p="Model" t="Include">
+          <e p="Metadata.cs" t="Include" />
+          <e p="MetadataArgument.cs" t="Include" />
+          <e p="MetadataLocation.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="GraphQL.MetadataIntrospection.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Schema" t="Include">
+          <e p="BasicDirectivesFilter.cs" t="Include" />
+          <e p="FieldValidationResult.cs" t="Include" />
+          <e p="IDirectivesFilter.cs" t="Include" />
+          <e p="MetadataExtractor.cs" t="Include" />
+          <e p="MetadataFieldNameValidator.cs" t="Include" />
+          <e p="MetadataFieldResolver.cs" t="Include" />
+          <e p="MetadataSchemaEnchancer.cs" t="Include" />
+          <e p="SchemaParser.cs" t="Include" />
+        </e>
+        <e p="Types" t="Include">
+          <e p="Metadata.cs" t="Include" />
+          <e p="MetadataArgument.cs" t="Include" />
+          <e p="MetadataLocation.cs" t="Include" />
+        </e>
+      </e>
+      <e p="GraphQL.MetadataIntrospection.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\Administrator\.Rider2018.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\Administrator\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Administrator\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_GraphQL.MetadataIntrospection.1761985900.00" t="ExcludeRecursive" />
+  </component>
+</project>
