@@ -11,7 +11,7 @@ namespace GraphQL.MetadataIntrospection
     {
         /// <summary>
         /// Adds GraphQL schema from SDL string to IServiceCollection.
-        /// Schema already has metadata query, which exposes all metadata found in schema.
+        /// Schema already has metadata query (by default on "_metadata" top-level field), which exposes all metadata found in schema.
         /// By default uses IServiceProvider.GetRequiredService as DependencyResolver for built schema. Can be overriden with configureBuilder action
         /// </summary>
         /// <param name="serviceCollection">Service collection to add schema to</param>
@@ -30,7 +30,7 @@ namespace GraphQL.MetadataIntrospection
 
         /// <summary>
         /// Adds GraphQL schema from multiple SDL strings to IServiceCollection.
-        /// Schema already has metadata query, which exposes all metadata found in schema.
+        /// Schema already has metadata query (by default on "_metadata" top-level field), which exposes all metadata found in schema.
         /// By default uses IServiceProvider.GetRequiredService as DependencyResolver for built schema. Can be overriden with configureBuilder action
         /// </summary>
         /// <param name="serviceCollection">Service collection to add schema to</param>
