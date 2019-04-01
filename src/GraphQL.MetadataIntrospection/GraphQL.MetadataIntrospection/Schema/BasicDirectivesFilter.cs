@@ -15,18 +15,8 @@ namespace GraphQL.MetadataIntrospection.Schema
 
         public bool Include(string directiveName)
         {
-           
-            if (this._includedDirectives.Length > 0 && !this._includedDirectives.Contains(directiveName))
-            {
-                return false;
-            }
-
-            if (this._excludedDirectives.Length > 0 && this._excludedDirectives.Contains(directiveName))
-            {
-                return false;
-            }
-
-            return true;
+            return (_excludedDirectives.Length <= 0 || !_excludedDirectives.Contains(directiveName)) &&
+                   (_includedDirectives.Length <= 0 || _includedDirectives.Contains(directiveName));
         }
     }
 }

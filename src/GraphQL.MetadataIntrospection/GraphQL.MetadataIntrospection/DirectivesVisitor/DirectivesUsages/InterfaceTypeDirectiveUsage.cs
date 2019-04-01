@@ -4,14 +4,14 @@ namespace GraphQL.MetadataIntrospection.DirectivesVisitor.DirectivesUsages
 {
     internal class InterfaceTypeDirectiveUsage
     {
-        public GraphQLInterfaceTypeDefinition OnInterface { get; private set; }
+        public GraphQLInterfaceTypeDefinition OnInterface { get; }
 
-        public GraphQLDirective Directive { get; private set; }
+        public GraphQLDirective Directive { get; }
 
         public InterfaceTypeDirectiveUsage(GraphQLInterfaceTypeDefinition onInterface, GraphQLDirective directive)
         {
-            this.Directive = directive;
-            this.OnInterface = onInterface;
+            Directive = directive;
+            OnInterface = onInterface;
         }
     }
 }

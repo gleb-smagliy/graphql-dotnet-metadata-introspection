@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL.MetadataIntrospection", "GraphQL.MetadataIntrospection\GraphQL.MetadataIntrospection.csproj", "{BC0065D4-91F7-4BF6-97C2-0D341D38B5AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL.MetadataIntrospection.Tests", "GraphQL.MetadataIntrospection.Tests\GraphQL.MetadataIntrospection.Tests.csproj", "{2EEAA174-3346-45A3-91ED-A072F6E53895}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{BC0065D4-91F7-4BF6-97C2-0D341D38B5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC0065D4-91F7-4BF6-97C2-0D341D38B5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC0065D4-91F7-4BF6-97C2-0D341D38B5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EEAA174-3346-45A3-91ED-A072F6E53895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EEAA174-3346-45A3-91ED-A072F6E53895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EEAA174-3346-45A3-91ED-A072F6E53895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EEAA174-3346-45A3-91ED-A072F6E53895}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

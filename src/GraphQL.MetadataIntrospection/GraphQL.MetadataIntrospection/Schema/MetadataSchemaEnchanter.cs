@@ -5,20 +5,20 @@ using GraphQL.Types;
 
 namespace GraphQL.MetadataIntrospection.Schema
 {
-    internal class MetadataSchemaEnchancer
+    internal class MetadataSchemaEnchanter
     {
         private readonly IFieldResolver<IEnumerable<Model.Metadata>> _resolver;
 
-        public MetadataSchemaEnchancer(IEnumerable<Model.Metadata> metadata)
+        public MetadataSchemaEnchanter(IEnumerable<Model.Metadata> metadata)
         {
-            this._resolver = new MetadataFieldResolver(metadata);
+            _resolver = new MetadataFieldResolver(metadata);
         }
 
         public ISchema MutateSchema(ISchema schema, string metadataQueryName)
         {
             var fieldType = new FieldType
             {
-                Resolver = this._resolver,
+                Resolver = _resolver,
                 Name = metadataQueryName,
                 Type = typeof(ListGraphType<Metadata>)
             };

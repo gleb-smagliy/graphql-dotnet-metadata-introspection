@@ -11,12 +11,12 @@ namespace GraphQL.MetadataIntrospection.Schema
 
         public MetadataFieldResolver(IEnumerable<Metadata> metadata)
         {
-            this._metadata = metadata;
+            _metadata = metadata;
         }
 
         public IEnumerable<Metadata> Resolve(ResolveFieldContext context)
         {
-            return this._metadata;
+            return _metadata;
         }
 
         object IFieldResolver.Resolve(ResolveFieldContext context)

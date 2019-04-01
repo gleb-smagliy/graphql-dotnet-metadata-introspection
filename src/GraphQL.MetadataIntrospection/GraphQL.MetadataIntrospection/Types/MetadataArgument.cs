@@ -8,7 +8,6 @@ namespace GraphQL.MetadataIntrospection.Types
         {
             Field(_ => _.Name).Description("Argument name");
             Field(_ => _.Value).Description("Argument value");
-            Field("type", _ => _.TypeName).Description("Argument GraphQL type");
         }
     }
 }
