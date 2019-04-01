@@ -9,6 +9,8 @@ namespace GraphQL.MetadataIntrospection.Types
             Field(_ => _.Name).Description("Metadata name");
             Field<MetadataLocation>("location", "Metadata location in the schema");
             Field<ListGraphType<MetadataArgument>>("arguments", resolve: ctx => ctx.Source.Arguments, description: "Metadata arguments");
+            Field(_ => _.FieldName, true).Description("Metadata on field");
+            Field(_ => _.TypeName).Description("Metadata on type");
         }
     }
 }

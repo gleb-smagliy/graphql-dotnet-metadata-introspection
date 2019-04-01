@@ -4,13 +4,13 @@ namespace GraphQL.MetadataIntrospection.Schema
 {
     internal static class MetadataFieldNameValidator
     {
-        private const string FieldRegexPattern = "[_A-Za-z][_0-9A-Za-z]*";
+        private const string FieldRegexPattern = "^[_A-Za-z][_0-9A-Za-z]*$";
         
-        private static readonly Regex fieldRegexp = new Regex(FieldRegexPattern, RegexOptions.Compiled); 
+        private static readonly Regex FieldRegexp = new Regex(FieldRegexPattern, RegexOptions.Compiled);
         
         public static FieldValidationResult Validate(string fieldName)
         {
-            if (!fieldRegexp.Match(fieldName).Success)
+            if (!FieldRegexp.IsMatch(fieldName))
             {
                 return new FieldValidationResult
                 {

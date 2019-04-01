@@ -4,17 +4,17 @@ namespace GraphQL.MetadataIntrospection.DirectivesVisitor.DirectivesUsages
 {
     internal struct ObjectFieldDirectiveUsage
     {
-        public GraphQLObjectTypeDefinition OnObject { get; private set; }
+        public GraphQLObjectTypeDefinition OnObject { get; }
 
-        public GraphQLFieldDefinition OnField { get; private set; }
+        public GraphQLFieldDefinition OnField { get; }
 
-        public GraphQLDirective Directive { get; private set; }
+        public GraphQLDirective Directive { get; }
 
         public ObjectFieldDirectiveUsage(GraphQLObjectTypeDefinition onObject, GraphQLFieldDefinition onField, GraphQLDirective directive)
         {
-            this.OnObject = onObject;
-            this.OnField = onField;
-            this.Directive = directive;
+            OnObject = onObject;
+            OnField = onField;
+            Directive = directive;
         }
     }
 }

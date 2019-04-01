@@ -21,7 +21,7 @@ namespace GraphQL.MetadataIntrospection
         /// <returns><see cref="IntrospectionConfiguration"/> for chaining</returns>
         public IntrospectionConfiguration IncludeDirective(string name)
         {
-            this.IncludedDirectives.Add(name);
+            IncludedDirectives.Add(name);
             
             return this;
         }
@@ -33,7 +33,7 @@ namespace GraphQL.MetadataIntrospection
         /// <returns><see cref="IntrospectionConfiguration"/> for chaining</returns>
         public IntrospectionConfiguration ExcludeDirective(string name)
         {
-            this.ExcludedDirectives.Add(name);
+            ExcludedDirectives.Add(name);
             
             return this;
         }
@@ -53,7 +53,7 @@ namespace GraphQL.MetadataIntrospection
                 throw new ArgumentException(validationResult.Error, nameof(name));
             }
 
-            this.FieldName = name;
+            FieldName = name;
 
             return this;
         }

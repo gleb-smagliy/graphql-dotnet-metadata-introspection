@@ -12,14 +12,14 @@ namespace GraphQL.MetadataIntrospection.DirectivesVisitor
                 switch (astNode.Kind)
                 {
                     case ASTNodeKind.ObjectTypeDefinition:
-                        this.VisitObjectType((GraphQLObjectTypeDefinition)astNode);
+                        VisitObjectType((GraphQLObjectTypeDefinition)astNode);
                         break;
                     case ASTNodeKind.TypeExtensionDefinition:
                         var extension = (GraphQLTypeExtensionDefinition)astNode;
-                        this.VisitObjectType(extension.Definition);
+                        VisitObjectType(extension.Definition);
                         break;
                     case ASTNodeKind.InterfaceTypeDefinition:
-                        this.VisitInterfaceType((GraphQLInterfaceTypeDefinition)astNode);
+                        VisitInterfaceType((GraphQLInterfaceTypeDefinition)astNode);
                         break;
                 }
             }
@@ -35,12 +35,12 @@ namespace GraphQL.MetadataIntrospection.DirectivesVisitor
             foreach (var directive in objectType.Directives)
             {
                 var usage = new ObjectTypeDirectiveUsage(objectType, directive);
-                this.ObjectTypeDirectiveUsageVisited(usage);
+                ObjectTypeDirectiveUsageVisited(usage);
             }
 
             foreach (var field in objectType.Fields)
             {
-                this.VisitObjectTypeField(objectType, field);
+                VisitObjectTypeField(objectType, field);
             }
         }
 
@@ -49,7 +49,7 @@ namespace GraphQL.MetadataIntrospection.DirectivesVisitor
             foreach (var directive in field.Directives)
             {
                 var usage = new ObjectFieldDirectiveUsage(objectType, field, directive);
-                this.ObjectFieldDirectiveUsageVisited(usage);
+                ObjectFieldDirectiveUsageVisited(usage);
             }
         }
 
@@ -58,12 +58,12 @@ namespace GraphQL.MetadataIntrospection.DirectivesVisitor
             foreach (var directive in interfaceType.Directives)
             {
                 var usage = new InterfaceTypeDirectiveUsage(interfaceType, directive);
-                this.InterfaceTypeDirectiveUsageVisited(usage);
+                InterfaceTypeDirectiveUsageVisited(usage);
             }
 
             foreach (var field in interfaceType.Fields)
             {
-                this.VisitInterfaceTypeField(interfaceType, field);
+                VisitInterfaceTypeField(interfaceType, field);
             }
         }
 
@@ -72,7 +72,7 @@ namespace GraphQL.MetadataIntrospection.DirectivesVisitor
             foreach (var directive in field.Directives)
             {
                 var usage = new InterfaceFieldDirectiveUsage(interfaceType, field, directive);
-                this.InterfaceFieldDirectiveUsageVisited(usage);
+                InterfaceFieldDirectiveUsageVisited(usage);
             }
         }
     }

@@ -15,16 +15,16 @@ namespace GraphQL.MetadataIntrospection.Schema
 
         public MetadataExtractor(IDirectivesFilter directivesFilter)
         {
-            this._directivesFilter = directivesFilter;
+            _directivesFilter = directivesFilter;
         }
 
         private static MetadataArgument MapArgument(GraphQLArgument argument)
         {
             return new MetadataArgument
             {
-                TypeName = argument.Value.Kind.ToString(),
-                Name = argument.Name.Value.ToString(),
+                Name = argument.Name.Value,
                 Value = argument.Value.ToString()
+
             };
         }
 
@@ -32,7 +32,7 @@ namespace GraphQL.MetadataIntrospection.Schema
         {
             var directiveName = usage.Directive.Name.Value;
             
-            if (!this._directivesFilter.Include(directiveName))
+            if (!_directivesFilter.Include(directiveName))
             {
                 return;
             }
@@ -41,17 +41,19 @@ namespace GraphQL.MetadataIntrospection.Schema
             {
                 Location = MetadataLocation.OBJECT_FIELD,
                 Name = directiveName,
-                Arguments = usage.Directive.Arguments.Select(MapArgument).ToArray()
+                Arguments = usage.Directive.Arguments.Select(MapArgument).ToArray(),
+                FieldName = usage.OnField.Name.Value,
+                TypeName = usage.OnObject.Name.Value
             };
 
-            this._metadata.Add(metadata);
+            _metadata.Add(metadata);
         }
 
         protected override void ObjectTypeDirectiveUsageVisited(ObjectTypeDirectiveUsage usage)
         {
             var directiveName = usage.Directive.Name.Value;
             
-            if (!this._directivesFilter.Include(directiveName))
+            if (!_directivesFilter.Include(directiveName))
             {
                 return;
             }
@@ -60,19 +62,20 @@ namespace GraphQL.MetadataIntrospection.Schema
             {
                 Location = MetadataLocation.OBJECT_TYPE,
                 Name = directiveName,
-                Arguments = usage.Directive.Arguments.Select(MapArgument).ToArray()
+                Arguments = usage.Directive.Arguments.Select(MapArgument).ToArray(),
+                TypeName = usage.OnObject.Name.Value
             };
 
-            this._metadata.Add(metadata);
+            _metadata.Add(metadata);
         }
 
         public IEnumerable<Metadata> ExtractMetadata(GraphQLDocument document)
         {
-            this._metadata = new List<Metadata>();
+            _metadata = new List<Metadata>();
 
-            this.Walk(document);
+            Walk(document);
 
-            return this._metadata;
+            return _metadata;
         }
     }
 }
