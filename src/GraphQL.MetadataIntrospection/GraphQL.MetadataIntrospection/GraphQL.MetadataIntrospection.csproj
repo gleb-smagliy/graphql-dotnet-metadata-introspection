@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <PackageVersion>0.0.2</PackageVersion>
+        <PackageVersion>0.1.0</PackageVersion>
         <Title>GraphQL.MetadataIntrospection</Title>
         <Authors>Gleb Smagliy &lt;glebsmag@gmail.com&gt;</Authors>
         <Description>Allows to introspect metadata declared by directives via query</Description>
